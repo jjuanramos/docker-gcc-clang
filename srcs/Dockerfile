@@ -14,6 +14,12 @@ RUN apt-get update && apt-get install -y \
  valgrind \
  readline-common \
  libreadline-dev \
+ xorg \ 
+ libx11-dev \
+ libxext-dev \
+ libxft-dev \
+ libxrandr-dev \
+ libbsd-dev \
  clang \
  && rm -rf /var/lib/apt/lists/* && \
  useradd -m marvin && \

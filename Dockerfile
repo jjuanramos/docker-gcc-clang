@@ -16,10 +16,12 @@ RUN apt-get update && apt-get install -y \
  neofetch \
  readline-common \
  libreadline-dev \
+ xorg \
  libx11-dev \
  libxext-dev \
  libxft-dev \
  libxrandr-dev \
+ libbsd-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \

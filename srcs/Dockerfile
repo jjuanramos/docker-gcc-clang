@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y \
  libxft-dev \
  libxrandr-dev \
  libbsd-dev \
+ x11-apps \
  clang \
  && rm -rf /var/lib/apt/lists/* && \
  useradd -m marvin && \
@@ -35,6 +36,9 @@ COPY --chown=marvin:marvin config/.vimrc config/.zshrc /home/marvin/
 RUN curl -s https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh --output /home/marvin/install.sh && \
  /bin/sh /home/marvin/install.sh --unattended --skip-chsh --keep-zshrc && \
  rm /home/marvin/install.sh
+
+# For running minilibX on MacOS
+ENV DISPLAY=host.docker.internal:0
 
 WORKDIR /home/marvin/docker
 

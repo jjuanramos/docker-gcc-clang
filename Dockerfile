@@ -16,12 +16,13 @@ RUN apt-get update && apt-get install -y \
  neofetch \
  readline-common \
  libreadline-dev \
- xorg \
- libx11-dev \
- libxext-dev \
- libxft-dev \
- libxrandr-dev \
- libbsd-dev \
+  xorg \ 
+  libx11-dev \
+  libxext-dev \
+  libxft-dev \
+  libxrandr-dev \
+  libbsd-dev \
+ x11-apps \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd ~ && curl -SL --output Meslo.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip && \
@@ -47,3 +48,5 @@ RUN echo "export PATH=/clang_15/bin:$PATH" >> ~/.zshrc && \
  echo "alias e='g srcs/test*.cpp > /dev/pts/1; c srcs/test*.cpp > /dev/pts/2'" >> ~/.zshrc
 
 ENV ASAN_SYMBOLIZER_PATH=/usr/lib/llvm-6.0/bin/llvm-symbolizer
+# For running minilibX on MacOS
+ENV DISPLAY=host.docker.internal:0

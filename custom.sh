@@ -1,5 +1,6 @@
 #!/bin/bash
 
+xhost + 127.0.0.1
 currentfolder=${PWD}
 cd ~
 echo "Which is the folder of your host computer you want to find in the container?:"
